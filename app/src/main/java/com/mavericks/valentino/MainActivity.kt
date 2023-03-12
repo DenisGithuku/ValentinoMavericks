@@ -99,3 +99,11 @@ fun ValentineScren() {
 fun ValentineScreenPrev() {
     ValentineScren()
 }
+
+
+/**
+ * Adding a simple Onboarding screen with a text
+ *
+ */
+
+@Composable
