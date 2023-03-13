@@ -36,6 +36,12 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ValentineScren() {
+    /**
+     * Include Onboarding screen 
+     */
+
+    
+    
     val info = listOf(
         Pair("Michelle", "Coroutines"),
         Pair("Josphat", "Firebase"),
@@ -107,3 +113,25 @@ fun ValentineScreenPrev() {
  */
 
 @Composable
+fun OnboardingScreen(
+    onContinueClicked: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+
+    ) {
+        Text("Welcome to Android Crush!")
+        Button(
+            modifier = Modifier.padding(vertical = 24.dp),
+            onClick = onContinueClicked
+        ) {
+            Text("Continue")
+
+        }
+
+
+    }
+}
