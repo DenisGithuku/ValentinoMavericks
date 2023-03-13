@@ -40,6 +40,17 @@ fun ValentineScren() {
      * Include Onboarding screen 
      */
 
+    var shouldShowOnboarding by remember { mutableStateOf(true)}
+
+    Surface() {
+        if (shouldShowOnboarding) {
+            OnboardingScreen(onContinueClicked = { shouldShowOnboarding = true })
+
+        } else {
+            ValentineScren()
+        }
+
+    }
     
     
     val info = listOf(
@@ -100,12 +111,6 @@ fun ValentineScren() {
     }
 }
 
-@Preview
-@Composable
-fun ValentineScreenPrev() {
-    ValentineScren()
-}
-
 
 /**
  * Adding a simple Onboarding screen with a text
@@ -135,3 +140,16 @@ fun OnboardingScreen(
 
     }
 }
+
+@Preview(showBackground = true, widthDp = 320, heightDp = 320)
+@Composable
+fun OnboardingPrev(){
+    OnboardingScreen(onContinueClicked = {})
+}
+
+@Preview
+@Composable
+fun ValentineScreenPrev() {
+    ValentineScren()
+}
+
