@@ -44,7 +44,7 @@ fun ValentineScren() {
 
     Surface() {
         if (shouldShowOnboarding) {
-            OnboardingScreen(onContinueClicked = { shouldShowOnboarding = true })
+            OnboardingScreen(onContinueClicked = { shouldShowOnboarding = false })
 
         } else {
             ValentineScren()
