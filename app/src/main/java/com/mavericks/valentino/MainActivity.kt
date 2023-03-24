@@ -36,6 +36,23 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ValentineScren() {
+    /**
+     * Include Onboarding screen 
+     */
+
+    var shouldShowOnboarding by remember { mutableStateOf(true)}
+
+    Surface() {
+        if (shouldShowOnboarding) {
+            OnboardingScreen(onContinueClicked = { shouldShowOnboarding = false })
+
+        } else {
+            ValentineScren()
+        }
+
+    }
+    
+    
     val info = listOf(
         Pair("Michelle", "Coroutines"),
         Pair("Josphat", "Firebase"),
@@ -94,8 +111,45 @@ fun ValentineScren() {
     }
 }
 
+
+/**
+ * Adding a simple Onboarding screen with a text
+ *
+ */
+
+@Composable
+fun OnboardingScreen(
+    onContinueClicked: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+
+    ) {
+        Text("Welcome to Android Crush!")
+        Button(
+            modifier = Modifier.padding(vertical = 24.dp),
+            onClick = onContinueClicked
+        ) {
+            Text("Continue")
+
+        }
+
+
+    }
+}
+
+@Preview(showBackground = true, widthDp = 320, heightDp = 320)
+@Composable
+fun OnboardingPrev(){
+    OnboardingScreen(onContinueClicked = {})
+}
+
 @Preview
 @Composable
 fun ValentineScreenPrev() {
     ValentineScren()
 }
+
